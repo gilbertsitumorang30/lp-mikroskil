@@ -1,0 +1,1342 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fakultas Informatika Mikroskil - Wujudkan masa depan digital melalui program studi Informatika, Sistem Informasi, dan Teknologi Informasi." />
+  <title>Fakultas Informatika | Mikroskil</title>
+
+  <style>
+    /* =========================
+       RESET & DESIGN SYSTEM
+    ========================== */
+    :root {
+      --primary: #123b75;
+      --primary-dark: #0a2854;
+      --accent: #f5a623;
+      --bg: #f6f8fc;
+      --white: #ffffff;
+      --text: #172b4d;
+      --muted: #64748b;
+      --border: #e5eaf2;
+      --radius: 18px;
+      --shadow: 0 12px 35px rgba(18, 59, 117, 0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--primary);
+      background: #eaf1fc;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-center .section-description {
+      margin-inline: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 23px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #182c46;
+    }
+
+    .btn-accent:hover {
+      background: #ffba45;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.65);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--primary);
+      color: white;
+      font-weight: 900;
+      font-size: 1.25rem;
+    }
+
+    .brand-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--primary);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(67, 129, 215, 0.22), transparent 28%),
+        linear-gradient(120deg, #091f45 0%, #123b75 62%, #1d5599 100%);
+      color: white;
+      padding: 95px 0 105px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      right: -130px;
+      bottom: -240px;
+      box-shadow: 0 0 0 50px rgba(255,255,255,0.025),
+                  0 0 0 100px rgba(255,255,255,0.02);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 65px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      border-radius: 50px;
+      padding: 8px 15px;
+      font-size: 0.82rem;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge span {
+      color: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 5vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 em {
+      color: #ffc45e;
+      font-style: normal;
+    }
+
+    .hero-description {
+      max-width: 540px;
+      color: #d5e2f5;
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      margin-top: 28px;
+      font-size: 0.82rem;
+      color: #c3d4ec;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image {
+      height: 420px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .floating-card {
+      position: absolute;
+      left: -28px;
+      bottom: 28px;
+      background: white;
+      color: var(--text);
+      padding: 19px 22px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      max-width: 230px;
+    }
+
+    .floating-card strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 3px;
+    }
+
+    .floating-card span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    /* =========================
+       HIGHLIGHTS
+    ========================== */
+    .highlights {
+      position: relative;
+      z-index: 2;
+      margin-top: -35px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 28px;
+    }
+
+    .highlight-item + .highlight-item {
+      border-left: 1px solid var(--border);
+    }
+
+    .highlight-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      background: #eaf1fc;
+      color: var(--primary);
+      font-size: 1.4rem;
+    }
+
+    .highlight-item strong {
+      display: block;
+      font-size: 0.98rem;
+    }
+
+    .highlight-item p {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-image {
+      height: 450px;
+      border-radius: 22px;
+    }
+
+    .about-tag {
+      position: absolute;
+      right: -20px;
+      bottom: 25px;
+      background: var(--accent);
+      padding: 17px 22px;
+      border-radius: 12px;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: grid;
+      gap: 13px;
+      margin: 26px 0 30px;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+      font-weight: 600;
+    }
+
+    .check {
+      color: #16865c;
+      font-weight: 900;
+    }
+
+    /* =========================
+       PROGRAM STUDI
+    ========================== */
+    .programs {
+      background: var(--bg);
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .program-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+      border-color: #c4d5ef;
+    }
+
+    .program-image {
+      height: 220px;
+      transition: transform 0.4s;
+    }
+
+    .program-card:hover .program-image {
+      transform: scale(1.035);
+    }
+
+    .program-image-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .program-number {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      background: white;
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 7px;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .program-body {
+      padding: 25px;
+    }
+
+    .program-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .program-body p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 23px;
+    }
+
+    .program-link {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .program-link:hover {
+      color: #3476c7;
+    }
+
+    /* =========================
+       CAREER
+    ========================== */
+    .career-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .career-image {
+      height: 400px;
+      border-radius: 22px;
+    }
+
+    .career-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .career-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: white;
+    }
+
+    .career-item span {
+      display: block;
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: 5px;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+    .cta {
+      padding: 0 0 100px;
+    }
+
+    .cta-panel {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(120deg, #0b2854, #174c91);
+      color: white;
+      border-radius: 24px;
+      padding: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .cta-panel::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 35px solid rgba(255,255,255,0.05);
+      border-radius: 50%;
+      right: 25%;
+      top: -150px;
+      pointer-events: none;
+    }
+
+    .cta-content {
+      max-width: 650px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-content h2 {
+      font-size: clamp(1.9rem, 4vw, 2.7rem);
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .cta-content p {
+      color: #d4e2f5;
+    }
+
+    .cta-action {
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+    footer {
+      background: #071b39;
+      color: white;
+      padding: 65px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 55px;
+      padding-bottom: 45px;
+    }
+
+    .footer-about p {
+      color: #b7c6db;
+      max-width: 360px;
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    .footer-title {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: #b7c6db;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 23px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #a9bad1;
+      font-size: 0.82rem;
+    }
+
+    /* =========================
+       ANIMATION
+    ========================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+    @media (max-width: 950px) {
+      .nav-links {
+        gap: 15px;
+        font-size: 0.82rem;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero-grid {
+        gap: 35px;
+      }
+
+      .hero-image {
+        height: 350px;
+      }
+
+      .highlight-item {
+        padding: 20px 15px;
+      }
+
+      .about-grid,
+      .career-grid {
+        gap: 40px;
+      }
+
+      .program-grid {
+        gap: 16px;
+      }
+
+      .program-body {
+        padding: 20px;
+      }
+
+      .cta-panel {
+        padding: 45px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 70px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-inner {
+        min-height: 70px;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        padding: 22px 5%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        padding: 70px 0 80px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .career-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 50px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 10vw, 3.6rem);
+      }
+
+      .hero-image {
+        height: 320px;
+      }
+
+      .floating-card {
+        left: 12px;
+        bottom: 12px;
+      }
+
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight-item + .highlight-item {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .program-image {
+        height: 240px;
+      }
+
+      .about-image,
+      .career-image {
+        height: 320px;
+      }
+
+      .about-tag {
+        right: 10px;
+      }
+
+      .career-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta {
+        padding-bottom: 70px;
+      }
+
+      .cta-panel {
+        padding: 35px 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px 25px;
+      }
+
+      .footer-about {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand-name {
+        font-size: 1.05rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .career-list {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-about {
+        grid-column: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="brand" aria-label="Mikroskil Beranda">
+        <div class="brand-icon">M</div>
+        <div>
+          <div class="brand-name">MIKROSKIL</div>
+          <div class="brand-subtitle">Fakultas Informatika</div>
+        </div>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Buka navigasi"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#program">Program Studi</a></li>
+        <li><a href="#karier">Prospek Karier</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+
+      <a
+        href="#pendaftaran"
+        class="btn btn-primary nav-cta"
+      >Daftar Sekarang ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="hero-badge">
+            <span>✦</span> Fakultas Informatika Mikroskil
+          </div>
+
+          <h1>
+            Bangun Masa Depan di Era <em>Digital.</em>
+          </h1>
+
+          <p class="hero-description">
+            Jadilah bagian dari generasi inovator teknologi.
+            Kembangkan kemampuan, ciptakan solusi, dan wujudkan
+            ide menjadi inovasi nyata bersama Fakultas Informatika Mikroskil.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#program" class="btn btn-accent">
+              Jelajahi Program Studi →
+            </a>
+            <a href="#tentang" class="btn btn-outline">
+              Kenali Fakultas
+            </a>
+          </div>
+
+          <p class="hero-note">
+            ✦ Informatika &nbsp; ✦ Sistem Informasi &nbsp; ✦ Teknologi Informasi
+          </p>
+        </div>
+
+        <div class="hero-visual reveal">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85"
+            alt="Mahasiswa berkolaborasi menggunakan teknologi"
+          />
+
+          <div class="floating-card">
+            <strong>Think. Create. Innovate.</strong>
+            <span>Mulai perjalanan digitalmu dari sini.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights">
+      <div class="container">
+        <div class="highlight-grid reveal">
+          <div class="highlight-item">
+            <div class="highlight-icon">⌘</div>
+            <div>
+              <strong>Teknologi & Inovasi</strong>
+              <p>Belajar menghadapi tantangan digital.</p>
+            </div>
+          </div>
+
+          <div class="highlight-item">
+            <div class="highlight-icon">◇</div>
+            <div>
+              <strong>Pembelajaran Terapan</strong>
+              <p>Bangun keterampilan melalui proyek.</p>
+            </div>
+          </div>
+
+          <div class="highlight-item">
+            <div class="highlight-icon">↗</div>
+            <div>
+              <strong>Siap Berkarier</strong>
+              <p>Persiapkan diri untuk industri teknologi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="tentang">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <img
+            class="about-image"
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85"
+            alt="Mahasiswa belajar dan berdiskusi"
+            loading="lazy"
+          />
+          <div class="about-tag">Learn · Build · Grow</div>
+        </div>
+
+        <div class="about-content reveal">
+          <span class="section-label">Tentang Fakultas</span>
+
+          <h2 class="section-heading">
+            Lebih dari Sekadar Belajar Teknologi
+          </h2>
+
+          <p>
+            Dunia digital terus berkembang. Fakultas Informatika Mikroskil
+            hadir sebagai bagian dari perjalanan pendidikan untuk
+            mempersiapkan talenta yang mampu memahami teknologi dan
+            menggunakannya untuk menyelesaikan permasalahan nyata.
+          </p>
+
+          <p>
+            Temukan bidang yang sesuai dengan minatmu, mulai dari
+            pengembangan perangkat lunak, pengelolaan sistem informasi,
+            hingga infrastruktur dan teknologi digital.
+          </p>
+
+          <ul class="check-list">
+            <li><span class="check">✓</span> Eksplorasi teknologi masa kini</li>
+            <li><span class="check">✓</span> Pengembangan kemampuan analitis</li>
+            <li><span class="check">✓</span> Kolaborasi dan pemecahan masalah</li>
+            <li><span class="check">✓</span> Persiapan menuju dunia profesional</li>
+          </ul>
+
+          <a href="#program" class="btn btn-primary">
+            Temukan Program Studi →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAM STUDI -->
+    <section class="section programs" id="program">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <span class="section-label">Program Akademik</span>
+          <h2 class="section-heading">Temukan Bidangmu</h2>
+          <p class="section-description">
+            Tiga pilihan program studi untuk membangun kompetensi
+            dan mengejar peluang di dunia teknologi.
+          </p>
+        </div>
+
+        <div class="program-grid">
+
+          <!-- INFORMATIKA -->
+          <article class="program-card reveal">
+            <div class="program-image-wrap">
+              <img
+                class="program-image"
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=85"
+                alt="Komponen dan perangkat teknologi"
+                loading="lazy"
+              />
+              <span class="program-number">01 / SOFTWARE</span>
+            </div>
+
+            <div class="program-body">
+              <h3>Informatika</h3>
+              <p>
+                Pelajari algoritma, pemrograman, kecerdasan buatan,
+                pengembangan perangkat lunak, dan pengolahan data
+                untuk menciptakan solusi digital.
+              </p>
+              <a href="#pendaftaran" class="program-link">
+                Pelajari Lebih Lanjut <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- SISTEM INFORMASI -->
+          <article class="program-card reveal">
+            <div class="program-image-wrap">
+              <img
+                class="program-image"
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=85"
+                alt="Analisis data dan dashboard bisnis"
+                loading="lazy"
+              />
+              <span class="program-number">02 / BUSINESS</span>
+            </div>
+
+            <div class="program-body">
+              <h3>Sistem Informasi</h3>
+              <p>
+                Jembatani bisnis dan teknologi melalui analisis proses
+                bisnis, perancangan sistem informasi, pengelolaan data,
+                dan transformasi digital.
+              </p>
+              <a href="#pendaftaran" class="program-link">
+                Pelajari Lebih Lanjut <span>→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- TEKNOLOGI INFORMASI -->
+          <article class="program-card reveal">
+            <div class="program-image-wrap">
+              <img
+                class="program-image"
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=85"
+                alt="Infrastruktur server dan jaringan komputer"
+                loading="lazy"
+              />
+              <span class="program-number">03 / INFRASTRUCTURE</span>
+            </div>
+
+            <div class="program-body">
+              <h3>Teknologi Informasi</h3>
+              <p>
+                Kenali infrastruktur digital, jaringan komputer,
+                komputasi awan, keamanan sistem, dan pengelolaan
+                teknologi untuk mendukung kebutuhan organisasi.
+              </p>
+              <a href="#pendaftaran" class="program-link">
+                Pelajari Lebih Lanjut <span>→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section class="section" id="karier">
+      <div class="container career-grid">
+        <div class="reveal">
+          <span class="section-label">Peluang Masa Depan</span>
+          <h2 class="section-heading">
+            Kembangkan Potensi, Ciptakan Peluang
+          </h2>
+          <p class="section-description">
+            Kompetensi teknologi membuka berbagai jalur karier.
+            Bangun fondasi pengetahuan dan keterampilan untuk
+            berkembang mengikuti kebutuhan industri digital.
+          </p>
+
+          <div class="career-list">
+            <div class="career-item">
+              <span>⌘</span>
+              Software Developer
+            </div>
+            <div class="career-item">
+              <span>▤</span>
+              Data Analyst
+            </div>
+            <div class="career-item">
+              <span>◇</span>
+              System Analyst
+            </div>
+            <div class="career-item">
+              <span>◎</span>
+              Cloud Engineer
+            </div>
+            <div class="career-item">
+              <span>⬡</span>
+              Cybersecurity
+            </div>
+            <div class="career-item">
+              <span>↗</span>
+              IT Consultant
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <img
+            class="career-image"
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85"
+            alt="Tim profesional berkolaborasi dalam proyek"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta" id="pendaftaran">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div class="cta-content">
+            <h2>Perjalanan Masa Depanmu Dimulai Hari Ini.</h2>
+            <p>
+              Kenali program studi pilihanmu dan cari tahu informasi
+              penerimaan mahasiswa baru melalui kanal resmi Mikroskil.
+            </p>
+          </div>
+
+          <div class="cta-action">
+            <a
+              href="https://mikroskil.ac.id/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-accent"
+            >
+              Kunjungi Mikroskil ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="kontak">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#home" class="brand">
+            <div class="brand-icon">M</div>
+            <div>
+              <div class="brand-name" style="color:white">MIKROSKIL</div>
+              <div class="brand-subtitle" style="color:#b7c6db">
+                Fakultas Informatika
+              </div>
+            </div>
+          </a>
+
+          <p>
+            Mempersiapkan generasi yang siap mengeksplorasi teknologi,
+            mengembangkan inovasi, dan menghadapi tantangan era digital.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Program Studi</h3>
+          <ul class="footer-links">
+            <li><a href="#program">Informatika</a></li>
+            <li><a href="#program">Sistem Informasi</a></li>
+            <li><a href="#program">Teknologi Informasi</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Jelajahi</h3>
+          <ul class="footer-links">
+            <li><a href="#tentang">Tentang Fakultas</a></li>
+            <li><a href="#karier">Prospek Karier</a></li>
+            <li>
+              <a
+                href="https://mikroskil.ac.id/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Situs Resmi Mikroskil ↗</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Fakultas Informatika Mikroskil.</p>
+        <p>Learn Today. Innovate Tomorrow.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // =========================
+    // MOBILE NAVIGATION
+    // =========================
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("active");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup navigasi" : "Buka navigasi"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Tutup menu setelah link diklik
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka navigasi");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // =========================
+    // SCROLL REVEAL ANIMATION
+    // =========================
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -30px 0px"
+        }
+      );
+
+      revealElements.forEach((element) => observer.observe(element));
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+
+    // =========================
+    // DYNAMIC COPYRIGHT YEAR
+    // =========================
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
